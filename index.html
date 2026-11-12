@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Top 150 Levels</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Apply saved theme before paint to avoid a flash
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem("theme"); } catch (e) {}
+      if (!t) t = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+      document.documentElement.dataset.theme = t;
+    })();
+  </script>
+</head>
+<body>
+  <div class="bg" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <header class="bar glass">
+    <h1>Top 150 Levels</h1>
+    <button id="theme" class="pill glass" type="button" aria-label="Switch between light and dark theme">
+      <span class="when-dark">Light mode</span><span class="when-light">Dark mode</span>
+    </button>
+  </header>
+
+  <main>
+    <ol id="list" class="list" aria-live="polite"></ol>
+    <p id="status" class="status glass" hidden></p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
